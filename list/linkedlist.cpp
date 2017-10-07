@@ -22,7 +22,7 @@ Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const
         return nullptr;
 
     Node<ItemType>* node = headPtr;
-    for (int i = 1; i <= position; i++)
+    for (int i = 0; i < position; i++)
     {
         if (node == nullptr)
             return nullptr;
@@ -52,18 +52,24 @@ bool LinkedList<ItemType>::insert(int position, const ItemType& item)
     Node<ItemType>* newNode = new Node<ItemType>();
     newNode->item = item;
     newNode->next = nullptr;
-    if (headPtr == nullptr)
+    if (headPtr == nullptr || position == 0)
     {
+        Node<ItemType>* currentNode = headPtr;
         headPtr = newNode;
+        newNode->next = currentNode;
         length++;
         return true;
     }
-    Node<ItemType>* currentNode = getNodeAt(position);
-    Node<ItemType>* nextNode = currentNode->next;
-    currentNode->next = newNode;
-    newNode->next = nextNode;
-    length++;
-    return true;
+    Node<ItemType>* prevNode = getNodeAt(position - 1);
+    if (prevNode != nullptr)
+    {
+        Node<ItemType>* nextNode = prevNode->next;
+        prevNode->next = newNode;
+        newNode->next = nextNode;
+        length++;
+        return true;
+    }
+    return false;
 }
 
 template<typename ItemType>
