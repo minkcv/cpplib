@@ -8,11 +8,11 @@ template<typename ItemType>
 class LinkedList : public IList<ItemType>
 {
     private:
-        Node<ItemType> headPtr;
+        Node<ItemType>* headPtr;
 
-        int itemCount;
+        int length;
 
-        Node<ItemType> getNodeAt(int position) const;
+        Node<ItemType>* getNodeAt(int position) const;
     public:
         LinkedList();
         LinkedList(const LinkedList<ItemType>& list);
@@ -25,7 +25,7 @@ class LinkedList : public IList<ItemType>
         bool removeAt(int position);
         void clear();
 
-        ItemType getEntry(int position) const;
+        ItemType getItem(int position) const;
 };
 
 #include "linkedlist.cpp"

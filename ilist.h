@@ -15,7 +15,7 @@ class IList
 
         virtual void clear() = 0;
 
-        virtual ItemType getEntry(int position) const = 0;
+        virtual ItemType getItem(int position) const = 0;
 };
 
 #endif
