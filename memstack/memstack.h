@@ -2,7 +2,6 @@
 #define MEMSTACK_H_
 
 #include "node.h"
-#include <stdlib.h>
 
 class MemStack
 {

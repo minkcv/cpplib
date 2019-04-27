@@ -1,7 +1,7 @@
 #ifndef NODE_H_
 #define NODE_H_
 
-#include <stdlib.h>
+#include <stddef.h>
 
 struct Node
 {

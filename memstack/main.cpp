@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <new>
 
+// These are meaningless containers
+// for demonstration purposes.
 class TestClass
 {
     public:
